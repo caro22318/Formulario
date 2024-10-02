@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de datos</title>
+</head>
+<body>
+    <center><h1>Bienvenidos a nuestro formulario</h1></center>
+    
+    <form action="recibe_datos.php" method="POST">
+        Nombre:<br>
+        <input type="text" name="name" required><br><br> <!-- Valor por defecto añadido -->
+        
+        Apellidos:<br>
+        <input type="text" name="apellido" required><br><br> <!-- Valor por defecto añadido -->
+        
+        Correo:<br>
+        <input type="email" name="email"  required><br><br> <!-- Campo validado para formato email -->
+
+        ¿Qué género tienes?:<br><br>
+        <input type="radio" name="genero" value="Femenino" required> Femenino<br>
+        <input type="radio" name="genero" value="Masculino"> Masculino<br>
+        <input type="radio" name="genero" value="Otros"> Otros <br>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
