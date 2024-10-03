@@ -9,27 +9,26 @@
     <center><h1>Bienvenidos a nuestro formulario</h1></center>
     
     <form action="recibe_datos.php" method="POST" enctype="multipart/form-data">
-        Nombre:<br>
-        <input type="text" name="name" required><br><br>
-    
-        Apellidos:<br>
-        <input type="text" name="apellido"  required><br><br>
-    
-        Correo:<br>
+        <label for="name">Nombre:</label>
+        <input type="text" name="name"  required><br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" required><br><br>
+
+        <label for="email">Email:</label>
         <input type="email" name="email"  required><br><br>
 
-        ¿Qué género tienes?:<br><br>
-        <input type="radio" name="genero" value="Femenino" required> Femenino<br>
+        <label for="genero">Género:</label><br>
         <input type="radio" name="genero" value="Masculino"> Masculino<br>
-        <input type="radio" name="genero" value="Otros"> Otros <br>
-        <br>
-    
-        Sube el primer archivo:<br>
+        <input type="radio" name="genero" value="Femenino"> Femenino<br>
+        <input type="radio" name="genero" value="Otros"> Otros<br><br>
+
+        <label for="fichero1">Sube el primer fichero:</label>
         <input type="file" name="fichero1"><br><br>
-    
-        Sube el segundo archivo:<br>
+
+        <label for="fichero2">Sube el segundo fichero:</label>
         <input type="file" name="fichero2"><br><br>
-    
+
         <input type="submit" value="Enviar">
     </form>
     
