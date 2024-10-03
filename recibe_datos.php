@@ -93,7 +93,7 @@ function guardarFichero($fichero, $carpeta = 'ficheros') {
     // Si el archivo ya existe, se le añade un sufijo _N
     if (file_exists($ruta_fichero)) {
         $info_fichero = pathinfo($ruta_fichero);
-        $base = $info_fichero['filename'];
+        $base = $info_fichero['valores_defecto.txt'];
         $extension = $info_fichero['extension'];
         $contador = 1;
 
