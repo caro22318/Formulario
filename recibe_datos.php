@@ -119,6 +119,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Archivos subidos correctamente.";
 }
 ?>
+<?php
+function almacenarEnFichero($datos, $archivo = 'datos_formulario.txt') {
+    $linea = '';
+    foreach ($datos as $campo => $valor) {
+        $linea .= "$campo: $valor" . PHP_EOL;
+    }
+    file_put_contents($archivo, $linea, FILE_APPEND); // Añade al archivo
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $campos = [
+        'nombre' => $_POST['name'],
+        'apellido' => $_POST['apellido'],
+        'email' => $_POST['email']
+    ];
+
+    almacenarEnFichero($campos); // Guardar datos en el archivo
+    echo "Datos almacenados correctamente.";
+}
+?>
 
 
 
