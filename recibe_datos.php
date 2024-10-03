@@ -61,6 +61,66 @@
     }
     ?>
 
+<?php
+function cargarValoresPorDefecto($filename = 'valores_defecto.txt') {
+    $valores = [];
+    if (file_exists($filename)) {
+        $archivo = fopen($filename, "r");
+        while (($linea = fgets($archivo)) !== false) {
+            $linea = trim($linea);
+            list($clave, $valor) = explode('=', $linea);
+            $valores[$clave] = $valor;
+        }
+        fclose($archivo);
+    }
+    return $valores;
+}
+
+$valores = cargarValoresPorDefecto();
+$nombre_defecto = isset($valores['nombre']) ? $valores['nombre'] : '';
+$apellido_defecto = isset($valores['apellido']) ? $valores['apellido'] : '';
+$email_defecto = isset($valores['email']) ? $valores['email'] : '';
+?>
+<?php
+function guardarFichero($fichero, $carpeta = 'ficheros') {
+    if (!file_exists($carpeta)) {
+        mkdir($carpeta, 0777, true);
+    }
+
+    $nombre_fichero = basename($fichero['name']);
+    $ruta_fichero = $carpeta . '/' . $nombre_fichero;
+
+    // Si el archivo ya existe, se le añade un sufijo _N
+    if (file_exists($ruta_fichero)) {
+        $info_fichero = pathinfo($ruta_fichero);
+        $base = $info_fichero['filename'];
+        $extension = $info_fichero['extension'];
+        $contador = 1;
+
+        do {
+            $nuevo_nombre_fichero = $base . '_' . $contador . '.' . $extension;
+            $ruta_fichero = $carpeta . '/' . $nuevo_nombre_fichero;
+            $contador++;
+        } while (file_exists($ruta_fichero));
+    }
+
+    move_uploaded_file($fichero['tmp_name'], $ruta_fichero);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_FILES['fichero1'])) {
+        guardarFichero($_FILES['fichero1']);
+    }
+    if (isset($_FILES['fichero2'])) {
+        guardarFichero($_FILES['fichero2']);
+    }
+
+    // Redirigir o mostrar un mensaje
+    echo "Archivos subidos correctamente.";
+}
+?>
+
+
 
 </body>
 

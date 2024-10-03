@@ -8,22 +8,30 @@
 <body>
     <center><h1>Bienvenidos a nuestro formulario</h1></center>
     
-    <form action="recibe_datos.php" method="POST">
+    <form action="recibe_datos.php" method="POST" enctype="multipart/form-data">
         Nombre:<br>
-        <input type="text" name="name" required><br><br> <!-- Valor por defecto añadido -->
-        
+        <input type="text" name="name" value="<?php echo $nombre_defecto; ?>" required><br><br>
+    
         Apellidos:<br>
-        <input type="text" name="apellido" required><br><br> <!-- Valor por defecto añadido -->
-        
+        <input type="text" name="apellido" value="<?php echo $apellido_defecto; ?>" required><br><br>
+    
         Correo:<br>
-        <input type="email" name="email"  required><br><br> <!-- Campo validado para formato email -->
+        <input type="email" name="email" value="<?php echo $email_defecto; ?>" required><br><br>
 
         ¿Qué género tienes?:<br><br>
         <input type="radio" name="genero" value="Femenino" required> Femenino<br>
         <input type="radio" name="genero" value="Masculino"> Masculino<br>
         <input type="radio" name="genero" value="Otros"> Otros <br>
         <br>
+    
+        Sube el primer archivo:<br>
+        <input type="file" name="fichero1"><br><br>
+    
+        Sube el segundo archivo:<br>
+        <input type="file" name="fichero2"><br><br>
+    
         <input type="submit" value="Enviar">
     </form>
+    
 </body>
 </html>
