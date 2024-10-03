@@ -34,7 +34,7 @@
     echo "<b>Género:</b> $gender<br>";
  
     // Mostrar los dispositivos seleccionados
-    if (!empty('devices')) {
+    if (!empty($devices)) {
         echo "<b>Dispositivos en propiedad:</b> " . implode(', ', $devices) . "<br>";
     }else{
         echo "<b>No ha seleccionado ningún dispositivo.</b><br>";
@@ -54,6 +54,7 @@
     if ($webErr) echo "<p><b>Sitio Web:</b> $webErr</p>";
     if ($genderErr) echo "<p><b>Género:</b> $genderErr</p>";
     }
+
     ?>
 </body>
 </html>
