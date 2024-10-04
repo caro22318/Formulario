@@ -1,3 +1,9 @@
+
+<?php 
+    //valores por defecto del formulario.
+    $valorFormulario = ["name" => "Victoria", "email" => "Hola@gmail.com", "web" => "https://www.google.com"];
+?>
+    
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +17,7 @@
 <form method="post" action="salida.php">
 
     
-    <b>Nombre</b><br><input type="text" name="name" placeholder="Ingrese su nombre"><br>
+    <b>Nombre</b><br><input type="text" name="name" placeholder="Ingrese su nombre" value = <? $valoresFormulario[name]?> ><br>
     <br><b>Correo electrónico</b> <br> <input type="text" name="email" placeholder="Ingrese un correo válido"><br>
     <br><b>Sitio Web</b> <br><input type="text" name="web" placeholder="URL"><br>
    
